@@ -1,38 +1,186 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  --MistyRose: #FFE4E1;
+  --LightSalmon: #FFA07A;
+
+}
+
+#root {
+  background-color: var(--LightSalmon);
+  height: 100vh;
+  position: relative;
+}
+
 .App {
+  position: absolute;
   text-align: center;
+  width: 720px;
+  margin: 0 auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--MistyRose);
+  -webkit-box-shadow: 2px 3px 14px 6px #B53F36;
+  box-shadow: 2px 3px 14px 6px #B53F36;
+  overflow: hidden;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.header h1 {
+  background-color: var(--MistyRose);
+  margin-top: 0px;
+  padding: 30px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+input,
+input:focus {
+  background-color: transparent;
+  border: none;
+  box-shadow: none
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.addTodoInput {
+  width: 100%;
+  height: 80px;
+  padding: 15px 55px;
+  border: 1px solid (var(--LightSalmon));
+  font-size: 2em;
+  font-weight: bold;
+  transition: 0.5s ease;
+}
+
+.addTodoInput:focus {
+  outline: var(--MistyRose) 1px solid;
+  box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgb(0 0 0 / 0%), 4px -1px 10px 0px rgb(0 0 0 / 20%);
+  transform: translateY(-9px) scale(1.1);
+  transition: 0.5s ease;
+}
+
+.Infor {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 15px;
 }
 
-.App-link {
-  color: #61dafb;
+.Todo-count {
+  display: inline-block;
+  padding: 20px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.buttonFilter {
+  display: inline-block;
+}
+
+.buttonFilter a {
+  margin: 5px;
+  padding: 10px;
+  border: 2px dotted var(--LightSalmon);
+  border-radius: 10px;
+  width: 100px;
+  text-decoration: none;
+  color: #000;
+  display: block;
+}
+
+.TodoList {
+  list-style: none;
+}
+
+
+.TodoInner {
+  position: relative;
+}
+
+.TodoInner input[type="checkbox"] {}
+
+.TodoInner label {
+  width: 100%;
+  display: block;
+  height: 80px;
+  background: #ff8c8c;
+  text-align: left;
+  padding: 15px 55px;
+  font-size: 2em;
+  border: solid #fff;
+  border-width: 2px 0px;
+  border-radius: 5px;
+}
+
+input.toggle {
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  transform: translate(9px, 25px);
+}
+
+button.deleteTodo {
+  top: 0;
+  right: 0;
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  transform: translate(-10px, 25px);
+  background: transparent;
+  border: 3px dotted #a50606;
+  border-radius: 7px;
+  -webkit-box-shadow: 2px 3px 14px 6px #b53f36;
+  box-shadow: 0px 3px 3px 3px #b53f36;
+}
+
+ul.TodoList {
+  max-height: 320px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+ul.TodoList::-webkit-scrollbar {
+  width: 10px;
+  background-color: #F5F5F5;
+  transition: 0.2s ease;
+  padding: 2px;
+}
+
+ul.TodoList::-webkit-scrollbar-thumb {
+  background-color: #777777;
+  border-radius: 10px;
+  transition: 0.5s ease;
+}
+
+ul.TodoList::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #F5F5F5;
+  transition: 0.5s ease;
+}
+
+ul.TodoList::-webkit-scrollbar-thumb:hover {
+  background: #555;
+  transition: 0.5s ease;
+}
+
+input.editing {
+  width: 100%;
+  display: block;
+  height: 80px;
+  background: #ff8c8c;
+  text-align: left;
+  padding: 15px 55px;
+  font-size: 2em;
+}
+
+input.editing:focus {
+  outline: var(--MistyRose) 1px solid;
+}
+
+label.active.toggle-all {
+  position: absolute;
+  top: 25px;
+  left: 25px;
+  background: #FFA07A;
+  height: 50px;
+  width: 50px;
+  padding: 13px;
 }
